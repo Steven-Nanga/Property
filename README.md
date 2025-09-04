@@ -1,6 +1,6 @@
 # Malawi Property Scrapers
 
-This repository contains Python scripts to scrape property listings from multiple Malawian real estate websites and save the data to CSV files.
+This repository contains Python scripts to scrape property listings from multiple Malawian real estate websites and save the data to CSV files. It also includes a Jupyter notebook for data analysis and visualization.
 
 ## Available Scrapers
 
@@ -24,6 +24,7 @@ Scrapes property listings from multiple Malawian property websites:
 - Respectful scraping with delays between requests
 - Saves data to CSV format
 - Multi-site support with unified data format
+- **Jupyter notebook for data analysis and visualization**
 
 ## Installation
 
@@ -37,7 +38,6 @@ pip install -r requirements.txt
 ## Usage
 
 ### Single Site Scraper (Atsogo)
-
 Run the Atsogo scraper to collect all available properties:
 
 ```bash
@@ -45,21 +45,21 @@ python atsogo_scraper.py
 ```
 
 ### Multi-Site Scraper
-
 Run the multi-site scraper to collect properties from all supported websites:
 
 ```bash
 python malawi_property_scraper.py
 ```
 
-### Advanced Usage
+### Data Analysis and Visualization
 
-You can limit the number of pages to scrape:
-
-```python
-# In the main() function, change:
-scraper.run(max_pages_per_site=3)  # Only scrape first 3 pages per site
-```
+Open the Jupyter notebook `LilongwePropertyAnalysis.ipynb` to explore and visualize the property data. The notebook includes:
+- Importing necessary packages (pandas, numpy, matplotlib, seaborn)
+- Loading the CSV data
+- Splitting the location column into 'city' and 'area'
+- Extracting the month name from the date column
+- Dropping the original location column
+- Exploratory data analysis with summary tables and visualizations
 
 ## Output
 
@@ -75,6 +75,9 @@ Creates `atsogo_properties.csv` with the following columns:
 - `bathrooms`: Number of bathrooms
 - `date_posted`: Date when the property was posted
 - `description`: Property description (if available)
+- **city**: Extracted city from location (added in notebook)
+- **area**: Extracted area from location (added in notebook)
+- **month**: Month name extracted from date_posted (added in notebook)
 
 ### Multi-Site Scraper Output
 Creates `malawi_properties.csv` with additional columns:
@@ -120,6 +123,7 @@ Please ensure you comply with each website's terms of service and robots.txt fil
 - `requests`: For making HTTP requests
 - `beautifulsoup4`: For parsing HTML content
 - `lxml`: XML/HTML parser backend for BeautifulSoup
+- `pandas`, `numpy`, `matplotlib`, `seaborn`: For data analysis and visualization in the notebook
 
 ## Future Enhancements
 
